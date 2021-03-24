@@ -1,0 +1,619 @@
+  <page>
+    <title>cat</title>
+    <ns>0</ns>
+    <id>36</id>
+    <revision>
+      <id>62197033</id>
+      <parentid>61825551</parentid>
+      <timestamp>2021-03-19T21:17:19Z</timestamp>
+      <contributor>
+        <username>Jberkel</username>
+        <id>1580588</id>
+      </contributor>
+      <comment>/* English */</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="26326" xml:space="preserve">{{also|.cat|CAT|Cat|cât|cãt}}
+==English==
+{{wikipedia}}
+[[Image:Cat03.jpg|thumb|A domestic cat]]
+
+===Pronunciation===
+* {{a|US|UK}} {{enPR|kăt}}, {{IPA|en|/kæt/|[kʰæt]|[kʰæt̚]}}
+* {{a|UK}} {{IPA|en|/kat/}}
+* {{audio|en|En-uk-a cat.ogg|Audio (UK)}}
+* {{audio|en|En-us-cat.ogg|Audio (US)}}
+* {{audio|en|En-us-inlandnorth-cat.ogg|Audio (US-Inland North)}}
+* {{rhymes|en|æt}}
+* {{homophones|en|Kat}}
+
+===Etymology 1===
+From {{inh|en|enm|cat}}, {{m|enm|catte}}, from {{inh|en|ang|catt||male cat}}, {{m|ang|catte||female cat}}, from {{inh|en|gem-pro|*kattuz}}.
+{{rel-top|Further etymology and cognates.}}
+The Germanic word is generally thought to be from {{der|en|LL.|cattus||domestic cat}} (c. 350, [[w:Rutilius Taurus Aemilianus Palladius|Palladius]]), from {{der|en|la|catta}} (c. 75 {{small|A.D.}}, [[w:Martial|Martial]]),&lt;ref&gt;{{R:Etymonline}}&lt;/ref&gt; from an {{der|en|afa}} language. This would roughly match how domestic cats themselves spread, as genetic studies suggest they began to spread out of the [[Near East]] / [[Fertile Crescent]] during the Neolithic (being in Cyprus by 9500 years ago,&lt;ref name=&quot;ISample&quot;/&gt;&lt;ref name=&quot;COttoni&quot;/&gt; and Greece and Italy by 2500 years ago&lt;ref&gt;Dennis C. Turner, Patrick Bateson, ''The Domestic Cat: The Biology of its Behaviour'' ({{ISBN|1107512212}}), page 93&lt;/ref&gt;), especially after they became popular in Egypt.&lt;ref name=&quot;ISample&quot;&gt;Ian Sample, ''[https://www.theguardian.com/science/2007/jun/29/genetics.sciencenews DNA research identifies homeland of the domestic cat]'', in ''The Guardian'' (29 June 2007)&lt;/ref&gt;&lt;ref name=&quot;COttoni&quot;&gt;Claudio Ottoni, Wim Van Neer, Eva-Maria Geigl, et al, ''The palaeogenetics of cat dispersal in the ancient world'', in ''Nature: Ecology &amp; Evolution'', volume 1 (19 June 2017) (doi: 10.1038/s41559-017-0139); summarized e.g. by [https://web.archive.org/web/20180516020404/http://blogs.plos.org/onscienceblogs/2017/06/23/where-did-cats-come-from/ PLOS]&lt;/ref&gt; However, every proposed source word has presented problems. [[w:Adolphe Pictet|Adolphe Pictet]]&lt;ref&gt;{{R:ine:Pictet|vol=I|page=381}}&lt;/ref&gt; and many subsequent sources refer to [[w:Barabra|Barabra]] (Nubian) {{m|onw|tr=kaddîska}} and &quot;Nouba&quot; ([[w:Nobiin language|Nobiin]]) {{m|fia|kadīs}} as possible sources or cognates,&lt;ref&gt;Otto Keller, ''Die antike Tierwelt'', vol. 1: ''Säugetiere'' (Leipzig, 1909), 75; Walther von Wartburg, ed. ''[[w:Französisches Etymologisches Wörterbuch|Französisches etymologisches Wörterbuch]]'', vol. 2 (Basel: R. G. Zbinden, 1922–1967), 520.&lt;/ref&gt; but M. Lionel Bender says the Nubian word is a loan from {{noncog|ar|قِطَّة}}.&lt;ref name=&quot;Qitta&quot;&gt;John Huehnergard, “Qitta: Arabic Cats”, in ''Classical Arabic Humanities in Their Own Terms'', ed. Beatrice Gruendler (Leiden: Brill, 2008), 407–18.&lt;/ref&gt; Jean-Paul Savignac suggests the Latin word is from an Egyptian precursor of {{cog|cop|ϣⲁⲩ||tomcat}} suffixed with feminine {{m|egy|-t}},&lt;ref&gt;Jean-Paul Savignac, ''Dictionnaire français-gaulois'', s.v. &quot;[[chat]]&quot; (Paris: Errance, 2004), 82.&lt;/ref&gt; but John Huehnergard says &quot;the source [...] was clearly not Egyptian itself, where no analogous form is attested.&quot;&lt;ref name=&quot;Qitta&quot;/&gt;
+
+It may be a [[Wanderwort]]&lt;ref&gt;{{R:EWddS|ed=22|hw=Katze|362}}&lt;/ref&gt; Kroonen says the word must have existed in Germanic from a very early date, as it shows morphological alternations, and suggests that it might have been borrowed from Uralic, compare {{noncog|se|gađfe||female stoat}} and {{noncog|hu|hölgy||stoat; lady, bride}} from {{noncog|urj-pro|*käďwä||female (of a fur animal)}}.&lt;ref&gt;{{R:gem:EDPG|*kattōn-}}&lt;/ref&gt;
+
+Related to {{cog|sco|cat}}, {{cog|fy|kat}}, {{cog|frr|kåt}} and {{m|frr|kaat}}, {{cog|nl|kat}}, {{cog|da|kat}}, {{cog|no|katt}}, {{cog|sv|katt}}, {{cog|nds-de|Katt}} and {{m|nds-de|Katte}}, {{cog|de|Katze}}, {{cog|gsw|Chatz}}, {{cog|is|köttur}}, {{cog|af|kat}}, {{cog|la|cattus}}, {{cog|fr|chat}}, {{cog|nrf|cat}}, {{cog|oc|cat}}, {{cog|pt|gato}}, {{cog|es|gato}}, {{cog|rup|cãtush}}, {{cog|gd|cat}}, {{cog|ga|cat}}, {{cog|br|kazh}}, {{cog|cy|cath}}, {{cog|kw|kath}}, as well as {{cog|grc|κάττα}}, {{cog|el|γάτα}}, and from the same ultimate source {{cog|ru|кот}}, {{cog|uk|кіт}}, {{cog|be|кот}}, {{cog|pl|kot}}, {{cog|csb|kòt}}, {{cog|lt|katė}}, and more distantly {{cog|hy|կատու}}, {{cog|eu|katu}}, {{cog|he|חתול|tr=khatúl}}, {{cog|ar|قِطَّة}} alongside dialectal Maghrebi Arabic {{m|ar|قَطُّوس}} (from Berber, probably from Latin).
+{{rel-bottom}}
+
+====Alternative forms====
+* {{alter|en|catte||obsolete}}
+
+====Noun====
+{{en-noun}}
+
+# An animal of the family [[Felidae]]:
+#* {{quote-book|en|year=2011|author=Karl Kruszelnicki|title=Brain Food|isbn=1466828129|page=53|passage=Mammals need two genes to make the taste receptor for sugar. Studies in various '''cats''' (tigers, cheetahs and domestic cats) showed that one of these genes has mutated and no longer works.}}
+#: {{syn|en|felid}}
+## A domesticated [[species]] (''[[Felis catus]]'') or [[subspecies]] (''[[Felis silvestris catus]]'') of [[feline]] animal, commonly kept as a house [[pet]]. {{defdate|from 8&lt;sup&gt;th&lt;/sup&gt;c.}}
+##* {{RQ:WBsnt IvryGt|II}}
+##*: At twilight in the summer there is never anybody to fear—man, woman, or '''cat'''—in the chambers and at that hour the mice come out. They do not eat parchment or foolscap or red tape, but they eat the luncheon crumbs.
+##: {{syn|en|puss|pussy|malkin|kitty|pussy-cat|grimalkin|Thesaurus:cat}}
+## Any similar animal of the family [[Felidae]], which includes [[lion]]s, [[tiger]]s, bobcats, etc.
+##* {{quote-book|en|year=1977|author=Peter Hathaway Capstick|title=Death in the Long Grass: A Big Game Hunter's Adventures in the African Bush|publisher=St. Martin's Press|page=44|passage=I grabbed it and ran over to the lion from behind, the '''cat''' still chewing thoughtfully on Silent's arm.}}
+##* '''1985''' January, George Laycock, &quot;Our American Lion&quot;, in Boy Scouts of America, ''{{w|Boys' Life}}'', 28.
+##*: If you should someday round a corner on the hiking trail and come face to face with a mountain lion, you would probably never forget the mighty '''cat'''.
+##* {{quote-book|en|year=2014|author=Dale Mayer|title=Rare Find. A Psychic Visions Novel|publisher=Valley Publishing|passage=She felt privileged to be here, living the experience inside the majestic '''cat''' [i.e. a tiger]; privileged to be part of their bond, even for only a few hours.}}
+# A person:
+## {{lb|en|offensive}} A spiteful or angry [[woman]]. {{defdate|from early 13&lt;sup&gt;th&lt;/sup&gt;c.}}
+##* '''1835''' September, anonymous, &quot;The Pigs&quot;, in ''The New-England Magazine'', Vol. 9, 156.
+##*: But, ere one rapid moon its tale has told, / He finds his prize — a '''cat''' — a slut — a scold.
+##: {{syn|en|bitch}}
+## An enthusiast or player of [[jazz]].
+##* {{quote-song|en|year=2008|author={{w|Nick Cave and the Bad Seeds}}|title=Hold on to Yourself|passage=I turn on the radio / There's some '''cat''' on the saxophone / Laying down a litany of excuses}}
+## {{lb|en|slang}} A person (usually male).
+##* {{quote-song|en|title=Starman|album=The Rise and Fall of Ziggy Stardust and the Spiders from Mars|artist=David Bowie|year=1972|passage=Didn't know what time it was the lights were low / I leaned back on my radio / Some '''cat''' was layin' down some rock'n'roll 'lotta soul, he said}}
+##* '''1973''' December, &quot;Books Noted&quot;, discussing ''A Dialogue'' (by James Baldwin and Nikki Giovanni), in ''Black World'', Johnson Publishing Company, 77.
+##*: BALDWIN: That's what we were talking about before. And by the way, you did not have to tell me that you think your father is a groovy '''cat'''; I knew that.
+##* {{quote-song|en|artist={{w|Shaquille O'Neal}}|title=Fiend|year=1998|album=Respect|passage=What fags are true I know what Mack's might do&lt;br/&gt;I'm quite familiar with '''cats''' like you&lt;br&gt;Provoke to get me give me a good reason to smoke me&lt;br&gt;Try to break me but never wrote me)}}
+##* {{quote-song|en|year=2006|lyricist=Masta Ace|title=Sick of it all|album=Pariah|passage=I am sick of rappers claiming they hot when they really not&lt;br/&gt;I am sick of rappers bragging about shit they ain’t really got&lt;br/&gt;These '''cats''' stay rapping about cars they don’t own&lt;br/&gt;I am sick of rappers bragging about models they don’t bone.[…]&lt;br/&gt;And I am sick of all these '''cats''' with no talent&lt;br/&gt;That never lived in the hood but yet their lyrics be so violent.}}
+##: {{syn|en|bloke|chap|cove|dude|fellow|fella|guy}}
+## {{lb|en|slang}} A [[prostitute]]. {{defdate|from at least early 15&lt;sup&gt;th&lt;/sup&gt;c.}}
+##* {{quote-book|en|year=1999|author=Carl P. Eby|title=Hemingway's Fetishism. Psychoanalysis and the Mirror of Manhood|publisher=State University of New York Press|page=124|passage=&quot;Tell me. Willie said there was a '''cat''' in love with you. That isn't true, is it?&quot; &quot;Yes. It's true,&quot; Hudson corrects her, letting her think that by &quot;cat&quot; he means prostitute.}}
+# {{lb|en|nautical}} A strong tackle used to hoist an anchor to the [[cathead]] of a ship.
+#* {{quote-book|en|year=2009|author=Olof A. Eriksen|title=Constitution - All Sails Up and Flying|publisher=Outskirts Press|page=134|passage=Overhaul down &amp; hook the '''cat''', haul taut. Walk away the '''cat'''. When up, pass the '''cat''' head stopper. Hook the fish in &amp; fish the anchor.}}
+# {{lb|en|chiefly|nautical}} {{non-gloss definition|Short form of}} [[cat-o'-nine-tails]].
+#* {{quote-book|en|year=1839|section=testimony by {{w|Henry L. Pinckney}} (Assembly No. 335)|title=Documents of the Assembly of the State of New York|page=44|passage={{...}}he whipped a black man for disobedience of his orders fifty lashes; and again whipped him with a '''cat''', which he wound with wire, about the same number of stripes;{{...}}he used this '''cat''' on one other man, and then destroyed the '''cat''' wound with wire.}}
+# {{lb|en|archaic}} A sturdy merchant sailing vessel {{qualifier|now only in &quot;[[catboat]]&quot;}}.
+# {{lb|en|archaic|uncountable}} The game of &quot;[[trap and ball]]&quot; (also called &quot;cat and dog&quot;).
+## The trap of the game of &quot;trap and ball&quot;.
+# {{lb|en|archaic}} The pointed piece of wood that is struck in the game of [[tipcat]].
+# {{lb|en|slang|vulgar|African American Vernacular English}} A [[vagina]], a [[vulva]]; the female external genitalia.
+#* {{quote-book|en|year=1969|author=Iceberg Slim| title=Pimp: The Story of My Life|publisher=Holloway House Publishing| passage=&quot;What the hell, so this broad's got a prematurely-gray '''cat'''.&quot;}}
+#* {{quote-book|en|year=2005|author=Carolyn Chambers Sanders| title=Sins &amp; Secrets|publisher=Hachette Digital|passage=As she came up, she tried to put her '''cat''' in his face for some licking.}}
+#* {{quote-book|en|year=2007|author=Franklin White|title=Money for Good|publisher=Simon and Schuster|page=64|passage=I had a notion to walk over to her, rip her apron off, sling her housecoat open and put my finger inside her '''cat''' to see if she was wet or freshly fucked because the dream I had earlier was beginning to really annoy me.}}
+# A [[double]] [[tripod]] (for holding a [[plate]], etc.) with six feet, of which three rest on the ground, in whatever position it is placed.
+# {{lb|en|historical}} A [[wheel]]ed [[shelter]], used in the [[Middle Ages]] as a [[siege]] weapon to allow [[assailant]]s to approach enemy [[defence]]s.
+#: {{syn|en|tortoise|Welsh cat}}
+#* {{quote-book|en|year=2000|author=Stephen O'Shea|title=The Perfect Heresy|publisher=Profile Books|page=97| passage=From behind the narrow slits in the walls of Castellar, crossbowmen and archers took aim at the juddering '''cat''' as it came closer.}}
+
+=====Synonyms=====
+See also [[Thesaurus:cat]], [[Thesaurus:man]].
+{{checksense|en}}
+* {{sense|any member of the [[suborder]] (sometimes [[superfamily]]) [[Feliformia]] or [[Feloidea]]}} {{l|en|feliform}} (&quot;[[cat-like]]&quot; [[carnivoran]]), [[feloid]] (compare [[Caniformia]], {{taxlink|Canoidea|superfamily|ver=170212}})
+* {{sense|any member of the [[subfamily]] [[Felinae]], genera ''[[Puma]]'', ''[[Acinonyx]]'', ''[[Lynx]]'', ''[[Leopardus]]'', and ''[[Felis]]'')}} {{l|en|feline cat}}, a [[feline]]
+* {{sense|any member of the subfamily [[Pantherinae]], genera ''[[Panthera]], [[Uncia]]'' and ''[[Neofelis]]''}} {{l|en|pantherine cat}}, a [[pantherine]]
+* {{sense|technically, all members of the genus ''Panthera''}} {{l|en|panther}} (i.e. [[tiger]], [[lion]], [[jaguar]], [[leopard]]), {{qualifier|narrow sense}} [[panther]] (i.e. {{vern|black panther}})
+* {{sense|any member of the [[extinct]] subfamily [[Machairodontinae]], genera ''[[Smilodon]]'', {{taxlink|Homotherium|genus|ver=170212}}, {{taxlink|Miomachairodus|genus|nover=1|ver=170212}}, etc.}} {{taxlink|Smilodontini|tribe|ver=170212}}, {{taxlink|Machairodontini|tribe|nover=1|ver=170212}} ({{taxlink|Homotherini|tribe|nover=1|ver=170212}}), {{taxlink|Metailurini|tribe|ver=170212}}, &quot;[[saber-toothed cat]]&quot; ([[saber-tooth]])
+
+=====Hyponyms=====
+* {{sense|domestic species}} {{l|en|housecat}}, {{l|en|malkin}}, {{l|en|kitten}}, {{l|en|mouser}}, {{l|en|tomcat}}
+
+=====Derived terms=====
+&lt;!--Move definitions to separate pages--&gt;
+{{col3|en
+|title=Terms derived from ''cat'' in the above senses|a cat in hell's chance
+|a cat may look at a king
+|[[all cats are grey in the dark]], [[all cats are grey by night]]
+|alley cat
+|African golden cat
+|Andean cat
+|Asiatic golden cat
+|bay cat
+|black-footed cat
+|bobcat
+|barn cat
+|[[Burmese cat]], [[Burmese]]
+|cat and mouse
+|cat box
+|cat food
+|[[cat that ate the canary]], [[cat that swallowed the canary]]
+|cat in the meal-tub
+|cat in the sack
+|catbird
+|cat-block
+|cat-burglar
+|catcall
+|cat-eyed
+|caterwaul
+|catfish
+|cat-flap
+|cat-footed
+|[[cat got someone's tongue]], [[cat got your tongue|cat got your tongue?]]
+|catgut
+|cat-harpin
+|[[cathead]], [[cat-head]]
+|cat-house
+|cat-ice
+|catkin
+|catlap
+|catless
+|catlet
+|cat-lick
+|catlike
+|catling
+|cat litter
+|catloaf
+|catly
+|catmint
+|[[cat-nap]], [[cat nap]], [[catnap]]
+|catnip
+|cat-o'-nine-tails
+|cat's cradle
+|cat's eye
+|cat's meat
+|cat's meow
+|[[cat's pajamas]], the [[cat's pyjamas]]
+|cat's paw
+|cat scratch fever
+|cat state
+|cat's-tail
+|catsuit
+|cat's whisker
+|cat's whiskers
+|cattish
+|catshit
+|cat-trap
+|catty
+|Caturday
+|cat wagon
+|[[catwalk]], [[cat-walk]]
+|cat-witted
+|Chinese desert cat
+|cool cat
+|copycat
+|curiosity killed the cat
+|domestic cat
+|fat cat
+|feral cat
+|fight like cats and dogs
+|fishing cat
+|flat-headed cat
+|Geoffroy's cat
+|hepcat
+|housecat
+|jungle cat
+|kick at the cat
+|lead a cat-and-dog life
+|leopard cat
+|let the cat out of the bag
+|like a cat in a strange garret
+|like a cat on hot bricks
+|like a cat on a hot tin roof
+|like herding cats
+|like the cat that got the cream
+|little spotted cat
+|lolcat
+|[[Maine Coon cat]], [[Maine Coon]]
+|make a cat laugh
+|[[Manx cat]], [[Manx]]
+|marbled cat
+|native cat
+|not enough room to swing a cat
+|Pallas cat
+|pampas cat
+|[[Persian cat]], [[Persian]]
+|rain cats and dogs
+|reduced cat
+|[[Russian Blue cat]], [[Russian Blue]]
+|rusty-spotted cat
+|sand cat
+|scaredy-cat
+|Schrödinger's cat
+|[[Siamese cat]], [[Siamese]]
+|spokescat
+|[[tabby cat]], [[tabby]]
+|the cat would eat fish but would not wet her feet
+|[[there's more than one way to skin a cat]], [[there is more than one way to skin a cat]]
+|[[tom cat]], [[tomcat]]
+|wait for the cat to jump
+|[[wildcat]], [[wild cat]]
+|when the cat's away the mice will play
+}}
+
+=====Translations=====
+{{see translation subpage|Noun}}
+
+====Verb====
+{{en-verb}}
+
+# {{lb|en|nautical|transitive}} To [[hoist]] (the [[anchor]]) by its [[ring]] so that it hangs at the [[cathead]].
+#* '''1922''', {{w|Francis Lynde}}, ''Pirates' Hope'', Charles Scribner's Sons, New York, page 226:
+#*: The anchors were '''catted''' at the bows of the yacht …
+# {{lb|en|nautical|transitive}} To flog with a [[cat-o'-nine-tails]].
+# {{lb|en|slang}} To [[vomit]].
+# To go [[wander]]ing at [[night]].
+#* {{quote-book|en |year=1998 |title=Lady's Wager |author=Mary Spencer |page=324|ISBN=|passage=&quot;He doesn't realize that I know,&quot; Lord Callan said, &quot;but it's been pretty obvious that most of his '''catting''' about London's darker alleys has been a search for his origins. }}
+#* {{quote-book|en |year=2010|title=Manchild in the Promised Land |author=Claude Brown |page=18|ISBN=|passage=This was going to be my first try at '''catting''' out. I went looking for somebody to '''cat''' with me.}}
+#* {{quote-book|en |year=2012|title=Wages of Sin|author=Valerie Hansen |page=|ISBN=|passage=My own dear wife could have tended to his needs if she hadn't been out '''catting'''.}}
+# To [[gossip]] in a [[catty]] manner.
+#* {{quote-book|en |year=1932 |title=Man Made Angry |author=Hugh Brooke |page=134|ISBN=|passage=Men from young to middleaged, with matt faces, vivacious and brightly dressed, '''catted''' together in gay groups.}}
+#* {{quote-book|en |year=1996|title=The Unlucky Seven|author=Alistair Boyle |page=|ISBN=|passage=They smiled, touched, rolled their eyes and raised their eyebrows, as they relived the audition and '''catted''' about some of their competition.}}
+#* {{quote-book|en |year=2016 |title=The Swans of Fifth Avenue|author=Melanie Benjamin |page=293|ISBN=|passage=In the story, Lady Ina gossiped and '''catted''' about a parade of the rich and famous—Jackie Kennedy looking like an exaggerated version of herself, Princess Margaret so boring she made people fall asleep, Gloria Vanderbilt so ditzy she didn't recognize her first husband.}}
+
+=====Translations=====
+{{trans-top|raise anchor to cathead}}
+* Danish: {{t|da|katte}}
+* Finnish: {{t|fi|[[nostaa]] [[ankkuri]]}}
+* French: {{t+|fr|caponner}}
+{{trans-mid}}
+* Italian: {{t|it|caponare}}
+* Norwegian: {{t+|no|katte}}
+* Saraiki: {{t+|skr|ٻِلّی|f|tr=ɓillī}}
+* Sedang: {{t|sed|yhg}}
+* Urdu: {{t|ur|بلّی|tr=billī}}
+{{trans-bottom}}
+
+{{trans-top|flog}}
+* Bulgarian: {{t|bg|бия с камшик}}
+* Finnish: {{t|fi|[[ruoskia]] [[yhdeksänhäntäinen kissa|yhdeksänhäntäisellä kissalla]]}}
+{{trans-mid}}
+* French: {{t|fr|[[fouetter]] avec un [[chat à neuf queues]]}}
+{{trans-bottom}}
+
+{{trans-top|vomit}}
+* Afrikaans: {{t|af|opgooi}}, {{t|af|kots}}
+* Danish: {{t+|da|brække sig}}
+* Estonian: {{t|et|oksendama}}
+* Finnish: {{qualifier|slang}} {{t+|fi|yrjötä}}
+{{trans-mid}}
+* French: {{t+|fr|dégobiller}}, {{t+|fr|débecter}}, {{t+|fr|débequeter}}, {{t+|fr|gerber}}
+* Polish: {{t+|pl|wymiotować}}
+* Portuguese: {{t+|pt|vomitar}}
+{{trans-bottom}}
+
+====See also====
+{{rel-top}}
+* {{l|en|Burmese}}
+* {{l|en|feline}}
+* {{l|en|kitten}}, {{l|en|kitty}}
+* {{l|en|Manx}}
+* {{l|en|Maine Coon}}
+* {{l|en|meow}}
+* {{l|en|mog}}, {{l|en|moggie}}, {{l|en|moggy}}
+* {{l|en|miaow}}
+* {{l|en|nine lives}}
+* {{l|en|Persian}}
+* {{l|en|Russian Blue}}
+* {{l|en|Schrödinger’s cat}}
+* {{l|en|Siamese}}
+* {{l|en|tabby}}
+{{rel-bottom}}
+
+===Etymology 2===
+
+====Noun====
+{{en-noun}}
+
+# {{abbreviation of|en|catamaran}}
+
+===Etymology 3===
+Abbreviation of ''[[catenate]]''.
+
+====Noun====
+{{en-noun}}
+
+# {{lb|en|computing}} A program and command in [[Unix]] that reads one or more files and directs their content to the standard output.
+
+====Verb====
+{{en-verb}}
+
+# {{lb|en|computing|transitive}} To [[apply]] the '''cat''' [[command]] to (one or more files).
+# {{lb|en|computing|slang}} To [[dump]] large amounts of data on (an unprepared target) usually with no intention of browsing it carefully.
+
+===Etymology 4===
+Possibly a shortened form of {{m|en|catastrophic}}.
+
+====Adjective====
+{{en-adj|-}}
+
+# {{lb|en|Ireland|informal}} [[terrible|Terrible]], [[disastrous]].
+#: {{ux|en|The weather was '''cat''', so they returned home early.}}
+
+=====Usage notes=====
+This usage is common in speech but rarely appears in writing.
+
+===Etymology 5===
+Shortened from {{m|en|methcathinone}}.
+
+====Noun====
+{{en-noun|-}}
+
+# {{lb|en|slang}} {{non-gloss definition|A street name of the drug [[methcathinone]].}}
+
+===Etymology 6===
+Shortened from {{m|en|catapult}}.
+
+====Noun====
+{{en-noun}}
+
+# {{lb|en|military|naval}} A [[catapult]].
+#: {{ux|en|a carrier's bow '''cats'''}}
+
+===Etymology 7===
+
+====Noun====
+{{en-noun}}
+
+# {{abbreviation of|en|category}}
+
+===Etymology 8===
+
+====Noun====
+{{en-noun}}
+
+# {{abbreviation of|en|catfish}}
+#* {{quote-book|en|year=1913|author={{w|Willa Cather}}|title=[[s:O Pioneers!|O Pioneers!]]|chapter=2|passage=She missed the fish diet of her own country, and twice every summer she sent the boys to the river, twenty miles to the southward, to fish for channel '''cat'''.}}
+#* '''1916''', M. Shults, &quot;Fishing for Yellow Cat in the Brazos&quot;, in ''Field and Stream'', vol. 21, 478.
+#*: Fishing for '''cat''' is probably, up to a certain stage, the least exciting of all similar sports.
+
+===Etymology 9===
+{{abbreviation of|en|caterpillar}}
+
+====Noun====
+{{en-noun}}
+
+# {{lb|en|slang}} Any of a variety of earth-moving [[machine]]s. (from their manufacturer {{w|Caterpillar Inc.}})
+# A [[caterpillar drive]] vehicle (a ground vehicle which uses [[caterpillar track]]s), especially tractors, trucks, minibuses, and snow groomers.
+
+===References===
+&lt;references/&gt;
+
+===Anagrams===
+* {{anagrams|en|a=act|A. C. T.|A.C.T.|ACT|ATC|Act.|CTA|TAC|TCA|act|act.|tac}}
+
+[[Category:English autohyponyms]]
+[[Category:English terms with multiple etymologies]]
+[[Category:English three-letter words]]
+{{c|en|Catfish|Cats|Felids|People}}
+
+----
+
+==Indonesian==
+
+===Etymology===
+From {{inh|id|ms|cat}}, from {{der|id|nan|漆|tr=chhat}}, from {{der|id|ltc|漆|tr=tsit}}.
+
+===Pronunciation===
+* {{IPA|id|[ˈt͡ʃat̚]}}
+* {{hyphenation|id|cat}}
+
+===Noun===
+{{id-noun}}
+
+# {{l|en|paint}} {{gloss|substance}}
+
+====Affixed terms====
+{{der4|id|
+| bercat
+| catan
+| mengecat
+| pengecat
+| pengecatan
+|}}
+
+====Compounds====
+{{der4|id|
+| cat air
+| cat alis
+| cat bakar
+| cat batik
+| cat bibir
+| cat kuku
+| cat lateks
+| cat minyak
+| cat rambut
+| cat semprot
+| cat wajah
+|}}
+
+===Further reading===
+* {{R:KBBI Daring}}
+
+{{c|id|Liquids}}
+
+----
+
+==Irish==
+[[File:Gatto europeo4.jpg|thumb|right|250px|Cat]]
+
+===Alternative forms===
+* {{alter|ga|cut||Cois Fharraige}}
+
+===Etymology===
+From {{inh|ga|sga|catt}}, from {{der|ga|la|cattus}}.
+
+===Pronunciation===
+* {{a|Munster|Aran}} {{IPA|ga|/kɑt̪ˠ/}}
+* {{a|Mayo|Ulster}} {{IPA|ga|/kat̪ˠ/}}
+* {{a|Cois Fharraige}} {{IPA|ga|/kʊt̪ˠ/}} {{qualifier|as if spelled ''cut''}}
+
+===Noun===
+{{ga-noun|m|cait|cait}}
+
+# {{l|en|cat}} {{qualifier|domestic feline; member of the Felidae}}
+
+====Declension====
+{{ga-decl-m1|c|at|ait}}
+
+====Derived terms====
+{{der4
+|ga|{{l|ga|caitín|t=catkin}}
+|{{l|ga|catach|pos=a|t=curly-haired}}
+|{{l|ga|catachas|t=heat (in a cat)}}
+|{{l|ga|cat crainn|t=pine marten}}
+|{{l|ga|cat Manannach|t=Manx cat}}
+|{{l|ga|cat mara|t=catfish}}
+|{{l|ga|catsúil|t=ogle}}
+|{{l|ga|catúil|pos=a|t=feline}}
+|{{l|ga|fearchat|t=tomcat}}
+|{{l|ga|liopardchat|t=leopard-cat}}
+}}
+
+===Mutation===
+{{ga-mut}}
+
+===Further reading===
+* {{R:ga:Ó Dónaill}}
+* {{R:ga:Dinneen 1904|121}}
+* {{R:DIL|8392|head=catt}}
+* {{R:ga:EID}}
+* {{R:ga:NEID}}
+
+{{c|ga|Cats|Felids}}
+
+----
+
+==Malay==
+[[File:GreenPaintBucketRome.jpg|thumb|right|200px|cat]]
+
+===Etymology===
+From {{der|ms|nan|漆|tr=chhat}}, from {{der|ms|ltc|漆|tr=tsit}}.
+
+===Pronunciation===
+* {{IPA|ms|/t͡ʃat/}}
+* {{rhymes|ms|t͡ʃat|at}}
+
+===Noun===
+{{ms-noun|j=چت|pl=-}}
+
+# [[paint]] {{gloss|substance}}
+
+====Affixed terms====
+* [[bercat]]
+* mengecat {{lb|ms|active}}: to paint
+** dicat {{lb|ms|passive}}: to be painted
+* {{l|ms|catan}}: [[painting]] {{gloss|an artwork in the form of a painted picture}}
+* [[pengecatan]]: the [[action]] of applying paint to something (e.g. a surface, etc.)
+* [[pengecat]]: [[painter]] {{gloss|a person whose job is paining buildings}}
+
+===Further reading===
+* {{R:PRPM}}
+
+{{c|ms|Liquids}}
+
+----
+
+==Middle English==
+
+===Alternative forms===
+* {{alter|enm|catte}}
+
+===Etymology===
+From {{inh|enm|ang|catt}}, {{m|ang|catte}}; this is in turn from {{inh|enm|gem-pro|*kattuz}}.
+
+===Pronunciation===
+* {{IPA|enm|/kat/}}
+
+===Noun===
+{{enm-noun}}
+
+# {{l|en|cat}} (feline)
+
+====Synonyms====
+* {{l|enm|badde}}
+
+====Descendants====
+* {{desc|en|cat}}
+* {{desc|sco|cat}}
+
+{{c|enm|Carnivores|Felids|Mammals}}
+
+----
+
+==Norman==
+
+===Etymology===
+From {{inh|nrf|ONF.|cat}} (variant of {{inh|nrf|fro|chat}}) from {{inh|nrf|LL.|cattus}}.
+
+===Pronunciation===
+* {{IPA|nrf|/ka/}}
+* {{audio|nrf|Jer-cat.ogg|Audio (Jersey)}}
+
+===Noun===
+{{nrf-noun|m|f=catte}}
+
+# {{l|en|cat}}
+#* {{circa|1830}} {{w|George Métivier}}, ‘Lamentations de Damaris’:
+#*: Où'est donc qu'j'iron, mé et mes puches / Ma '''catte''', et l'reste de l'écu?
+#* '''2006''', Peggy Collenette, ‘D'la gâche de Guernési’, ''P'tites Lures Guernésiaises'', Cromwell Press 2006, page 20:
+#*: Ils d'visirent pour enne haeure, mais la Louise était pas chagrinaïe au tour sa pâte, pasqué a savait que le '''cat''' était à gardaïr la pâte caoude. (''They talked for an hour, but Louise was not worried about her dough, because she knew that the '''cat''' was keeping the dough warm.'')
+# {{lb|nrf|Jersey}} {{vern|common dab}} ({{taxlink|Limanda limanda|species}})
+
+====Derived terms====
+* {{l|nrf|catchiéthe||cat-flap}}
+
+[[Category:Norman terms inherited from Latin]]
+{{topics|nrf|Cats|Felids|Flatfish}}
+
+----
+
+==Old French==
+
+===Noun===
+{{fro-noun|m}}
+
+# {{lb|fro|Picardy|Anglo-Norman}} {{alternative form of|fro|chat}}
+
+----
+
+==Romanian==
+
+===Etymology===
+Borrowed from {{bor|ro|tr|kat}}.
+
+===Pronunciation===
+* {{IPA|ro|/kat/}}
+* {{rhymes|ro|at}}
+
+===Noun===
+{{ro-noun|n|caturi}}
+
+# {{lb|ro|dated}} [[floor]] ([[storey]])
+#* '''1892''', [[w:Barbu Ștefănescu Delavrancea|Barbu Ștefănescu Delavrancea]], ''[[s:ro:Domnul Vucea|Mr. Vucea]]'':
+#*: Mi-aduc bine aminte că unul sărea de la al cincilea '''cat''', și c-o mână își ținea pălăria. Grozav îi era de pălărie!
+#*:: I remember well that one was jumping from the fifth '''floor''', and was holding his hat with one hand. That proud was he of the hat!
+
+====Declension====
+{{ro-noun-n-uri}}
+
+----
+
+==Scottish Gaelic==
+
+===Etymology===
+From {{inh|gd|sga|catt}}, from {{der|gd|la|cattus}}.
+
+===Pronunciation===
+* {{IPA|gd|/kʰaht̪/}}
+
+===Noun===
+{{gd-noun|g=m|gen=cait|pl=cait}}
+
+# {{l|en|cat}} {{gloss|animal}}
+
+====Declension====
+{{gd-decl-noun-indef|cat|cait|a chait|a chata|cait|chat|cat|cait}}
+{{gd-decl-noun-def|an cat|na cait|a’ chait|nan cat|a’ chat|na cait}}
+
+====Derived terms====
+* {{l|gd|clòimh-chat}}
+
+===Mutation===
+{{gd-mut-cons|c|at}}
+
+{{topics|gd|Cats|Male animals}}</text>
+      <sha1>9gkc12vnvlawv2yrah8clk1aji6r2cu</sha1>
+    </revision>
+  </page>

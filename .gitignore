@@ -1,0 +1,5 @@
+/target
+enwiktionary-*.xml
+sample-*mb.xml
+*.txt
+.vscode
