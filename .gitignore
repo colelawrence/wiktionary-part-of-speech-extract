@@ -3,3 +3,4 @@ enwiktionary-*.xml
 sample-*mb.xml
 *.txt
 .vscode
+out-*
