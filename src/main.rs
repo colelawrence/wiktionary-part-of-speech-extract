@@ -1,4 +1,5 @@
-use std::{env, time::Instant};
+use parse::PageInfo;
+use std::{collections::HashMap, env, path::PathBuf, time::Instant};
 use ustr::UstrMap;
 
 static OPENING_PAGE: &str = "<page>";
@@ -104,6 +105,71 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+pub struct FSTOptions {
+    /// Result will always be flattened to lowercase
+    pub flatten_unicode: bool,
+    pub exclude_pages_which_have_only_nouns: bool,
+}
+
+fn build_fst_from_pages(
+    pages: &[PageInfo],
+    options: FSTOptions,
+    fst_path: PathBuf,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let w = std::io::BufWriter::new(std::fs::File::create(fst_path)?);
+    let mut tb = TagsBuilder::new(w)?;
+
+    let exclude_before_checking_empty = if options.exclude_pages_which_have_only_nouns {
+        let mut excluded = TagSet::default();
+        excluded.insert_tag(&Tag::Noun);
+        excluded.insert_tag(&Tag::Pronoun);
+        excluded.insert_tag(&Tag::ProperNoun);
+        excluded
+    } else {
+        TagSet::default()
+    };
+    let mut pages_sorted = pages
+        .iter()
+        // flatten
+        .filter_map(|info| {
+            if info
+                .tags
+                .remove_tag_set(&exclude_before_checking_empty)
+                .is_empty()
+            {
+                return None;
+            }
+
+            Some((
+                if options.flatten_unicode {
+                    unidecode::unidecode(&info.title).to_ascii_lowercase()
+                } else {
+                    info.title.to_lowercase()
+                },
+                info.tags.clone(),
+            ))
+        })
+        .fold(
+            HashMap::<String, TagSet>::new(),
+            |mut acc, (title, tags)| {
+                acc.entry(title).or_default().extend(tags);
+                acc
+            },
+        )
+        .into_iter()
+        .collect::<Vec<_>>();
+    pages_sorted.sort_by(|a, b| a.0.cmp(&b.0));
+
+    for (title, tag_set) in pages_sorted {
+        tb.insert_tag_set(&title, &tag_set)?;
+
+        println!("{}:{:?}", title, tag_set)
+    }
+
+    tb.finish()?;
+
+    Ok(())
+}
 /*
 {
     u!("en-interj"): 2601,

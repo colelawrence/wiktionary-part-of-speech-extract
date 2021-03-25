@@ -1,4 +1,4 @@
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct TagSet(u32);
 
 impl std::fmt::Debug for TagSet {
@@ -16,8 +16,20 @@ impl TagSet {
         Self(mask)
     }
 
+    pub(crate) fn is_empty(&self) -> bool {
+        self.0 == 0
+    }
+
     pub(crate) fn insert_tag(&mut self, tag: &Tag) {
         self.0 |= tag.to_mask();
+    }
+
+    pub(crate) fn remove_tag_set(&self, tag_set: &Self) -> Self {
+        TagSet(self.0 & !tag_set.0)
+    }
+
+    pub(crate) fn extend(&mut self, other: Self) {
+        self.0 |= other.0;
     }
 
     pub(crate) fn insert_tag_mask(&mut self, tag: u32) {
