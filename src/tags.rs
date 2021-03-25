@@ -46,36 +46,6 @@ impl TagSet {
     }
 }
 
-#[derive(Clone, Copy, Debug)]
-pub enum Tag {
-    /// adj
-    Adjective,
-    /// adv
-    Adverb,
-    /// con
-    Conjunction,
-    /// det
-    Determiner,
-    /// interj
-    Interjection,
-    /// noun
-    Noun,
-    /// num
-    Numeral,
-    /// part
-    Particle,
-    /// postp
-    Postposition,
-    /// prep
-    Preposition,
-    /// pron
-    Pronoun,
-    /// proper noun
-    ProperNoun,
-    /// verb
-    Verb,
-}
-
 pub struct TagsBuilder<W: std::io::Write>(fst::MapBuilder<W>);
 
 // in memory construction
@@ -115,9 +85,65 @@ impl<W: std::io::Write> TagsBuilder<W> {
         })
     }
 
+    pub fn extend_iter<I: IntoIterator<Item = (String, TagSet)>>(
+        &mut self,
+        iter: I,
+    ) -> Result<(), String> {
+        self.0
+            .extend_iter(
+                iter.into_iter()
+                    .map(|(key, tag_set)| (key, tag_set.to_mask() as u64)),
+            )
+            .map_err(|err| format!("Expected to insert key but got error:\n{:#?}", err))
+    }
+
     pub fn finish(self) -> Result<(), fst::Error> {
         self.0.finish()
     }
+}
+
+pub struct TagsLookup<D>(fst::Map<D>);
+
+impl<D: AsRef<[u8]>> TagsLookup<D> {
+    pub fn new(data: D) -> Result<Self, String> {
+        fst::Map::new(data)
+            .map(TagsLookup)
+            .map_err(|fst_err| format!("Invalid TagsLookup: {:?}", fst_err))
+    }
+
+    pub fn get(&self, key: &str) -> Option<TagSet> {
+        self.0.get(key).map(|mask| TagSet::from_mask(mask as u32))
+    }
+}
+
+#[derive(Clone, Copy, Debug)]
+pub enum Tag {
+    /// adj
+    Adjective,
+    /// adv
+    Adverb,
+    /// con
+    Conjunction,
+    /// det
+    Determiner,
+    /// interj
+    Interjection,
+    /// noun
+    Noun,
+    /// num
+    Numeral,
+    /// part
+    Particle,
+    /// postp
+    Postposition,
+    /// prep
+    Preposition,
+    /// pron
+    Pronoun,
+    /// proper noun
+    ProperNoun,
+    /// verb
+    Verb,
 }
 
 impl Tag {

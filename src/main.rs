@@ -1,5 +1,4 @@
 use std::{env, time::Instant};
-use unidecode::unidecode;
 use ustr::UstrMap;
 
 static OPENING_PAGE: &str = "<page>";
@@ -86,7 +85,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     eprintln!("{:#?}", pages.len());
     eprintln!("{:#?}", tag_counter);
 
-    let fst_path = std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap())
+    let fst_path = std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap_or(".".into()))
         .join("enwiktionary-word-tags.fst");
     let w = std::io::BufWriter::new(std::fs::File::create(fst_path)?);
     let mut tb = TagsBuilder::new(w)?;
@@ -94,11 +93,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut pages_sorted = pages;
     pages_sorted.sort_by(|a, b| a.title.cmp(&b.title));
 
-    for page in pages_sorted {
-        tb.insert_tag_set(&page.title, &page.tags)?;
+    tb.extend_iter(pages_sorted.into_iter().map(|page| {
+        println!("{}:{:?}", page.title, page.tags);
 
-        println!("{}:{:?}", page.title, page.tags)
-    }
+        (page.title, page.tags)
+    }))?;
 
     tb.finish()?;
 
