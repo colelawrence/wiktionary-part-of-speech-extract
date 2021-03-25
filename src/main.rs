@@ -1,10 +1,13 @@
-use std::{env, io::Read, time::Instant};
-
-use regex::internal::Inst;
-use ustr::{UstrMap, UstrSet};
+use std::{env, time::Instant};
+use ustr::UstrMap;
 
 static OPENING_PAGE: &str = "<page>";
 static CLOSING_PAGE: &str = "</page>";
+
+mod parse;
+mod tags;
+
+use tags::{Tag, TagSet, TagsBuilder};
 
 #[derive(Debug)]
 enum MyError {
@@ -23,113 +26,6 @@ impl From<String> for MyError {
         MyError::InvalidPage(err)
     }
 }
-
-struct TagMask(u32);
-
-impl TagMask {
-    fn from_u32(mask: u32) -> Self {
-        Self(mask)
-    }
-    fn tags(self) -> impl Iterator<Item = Tag> {
-        std::iter::repeat(self.0)
-            .take((32 - self.0.leading_zeros()) as usize)
-            .enumerate()
-            .flat_map(|(i, mask)| {
-                if mask & 1 << i != 0 {
-                    Some(Tag::from_u32(i as u32))
-                } else {
-                    None
-                }
-            })
-    }
-}
-
-#[derive(Clone, Copy, Debug)]
-enum Tag {
-    /// adj
-    Adjective,
-    /// adv
-    Adverb,
-    /// con
-    Conjunction,
-    /// det
-    Determiner,
-    /// interj
-    Interjection,
-    /// noun
-    Noun,
-    /// num
-    Numeral,
-    /// part
-    Particle,
-    /// postp
-    Postposition,
-    /// prep
-    Preposition,
-    /// pron
-    Pronoun,
-    /// proper noun
-    ProperNoun,
-    /// verb
-    Verb,
-}
-
-impl Tag {
-    fn to_mask(self) -> u32 {
-        1 << match self {
-            Tag::Adjective => 1,
-            Tag::Adverb => 2,
-            Tag::Conjunction => 3,
-            Tag::Determiner => 4,
-            Tag::Interjection => 5,
-            Tag::Noun => 6,
-            Tag::Numeral => 7,
-            Tag::Particle => 8,
-            Tag::Postposition => 9,
-            Tag::Preposition => 10,
-            Tag::Pronoun => 11,
-            Tag::ProperNoun => 12,
-            Tag::Verb => 13,
-        }
-    }
-    fn from_u32(i: u32) -> Self {
-        match i {
-            1 => Tag::Adjective,
-            2 => Tag::Adverb,
-            3 => Tag::Conjunction,
-            4 => Tag::Determiner,
-            5 => Tag::Interjection,
-            6 => Tag::Noun,
-            7 => Tag::Numeral,
-            8 => Tag::Particle,
-            9 => Tag::Postposition,
-            10 => Tag::Preposition,
-            11 => Tag::Pronoun,
-            12 => Tag::ProperNoun,
-            13 => Tag::Verb,
-            _ => panic!("Invalid variant"),
-        }
-    }
-}
-
-const TAG_ALIASES: &[(&Tag, &[&str])] = &[
-    (&Tag::Adjective, &["en-adj", "en-adjective"]),
-    (&Tag::Adverb, &["en-adv", "en-adverb"]),
-    (&Tag::Conjunction, &["en-con", "en-conjunction"]),
-    (&Tag::Determiner, &["en-det"]),
-    (
-        &Tag::Interjection,
-        &["en-interj", "en-interjection", "en-intj"],
-    ),
-    (&Tag::Noun, &["en-noun"]),
-    (&Tag::Numeral, &["en-num"]),
-    (&Tag::Particle, &["en-part"]),
-    (&Tag::Postposition, &["en-postp"]),
-    (&Tag::Preposition, &["en-prep"]),
-    (&Tag::Pronoun, &["en-pron"]),
-    (&Tag::ProperNoun, &["en-proper noun"]),
-    (&Tag::Verb, &["en-verb"]),
-];
 
 fn main() -> Result<(), MyError> {
     use parse::ParserRegexes;
@@ -190,92 +86,10 @@ fn main() -> Result<(), MyError> {
     eprintln!("{:#?}", interner);
 
     for page in pages {
-        println!(
-            "{}:{} # {:?}",
-            page.title,
-            page.tags,
-            TagMask::from_u32(page.tags).tags().collect::<Vec<_>>()
-        )
+        println!("{}:{:?}", page.title, page.tags)
     }
 
     Ok(())
-}
-
-mod parse {
-    use fst::{Map, MapBuilder};
-    use regex::Regex;
-    use ustr::{ustr, UstrMap};
-
-    pub struct ParserRegexes {
-        tag_regex: Regex,
-        title_regex: Regex,
-        alias_lookup: Map<Vec<u8>>,
-    }
-
-    impl std::default::Default for ParserRegexes {
-        fn default() -> Self {
-            let mut mb = MapBuilder::memory();
-
-            for (tag, aliases) in super::TAG_ALIASES.iter() {
-                let tag_mask = tag.to_mask();
-                for alias in aliases.iter() {
-                    mb.insert(alias.to_string(), tag_mask as u64);
-                }
-            }
-
-            ParserRegexes {
-                alias_lookup: Map::new(mb.into_inner().unwrap()).unwrap(),
-                tag_regex: Regex::new(
-                    r#"(?x)
-                    \{\{\s*
-                    ((?:en)\-[^\\|{}\d\.&]+)
-                "#,
-                )
-                .unwrap(),
-                title_regex: Regex::new(
-                    r#"(?x)
-                    <title>
-                    ([^<]+)
-                "#,
-                )
-                .unwrap(),
-            }
-        }
-    }
-
-    #[derive(Debug)]
-    pub struct PageInfo {
-        pub title: String,
-        pub tags: u32,
-    }
-
-    pub fn parse_page(
-        regexes: &ParserRegexes,
-        tag_interner: &mut UstrMap<usize>,
-        add_to: &mut Vec<PageInfo>,
-        page_contents: &str,
-    ) -> Result<(), String> {
-        regexes
-            .title_regex
-            .captures(&page_contents)
-            .ok_or_else(|| format!("Failed to find title for page"))
-            .map(|title| {
-                let mut tags = 0u64;
-                for wiki_tag in regexes.tag_regex.captures_iter(&page_contents).map(|cap| {
-                    let handle = ustr(&cap[1].trim());
-                    *tag_interner.entry(handle).or_default() += 1;
-                    handle
-                }) {
-                    if let Some(existing_tag) = regexes.alias_lookup.get(wiki_tag.as_str()) {
-                        tags |= existing_tag;
-                    }
-                }
-                add_to.push(PageInfo {
-                    title: String::from(&title[1]),
-                    tags: tags as u32,
-                });
-            })
-    }
 }
 
 /*
