@@ -67,7 +67,7 @@ impl TagSet {
             .skip(trailing_zeros)
             .enumerate()
             .flat_map(move |(i, mask)| {
-                if mask & 1 << i + trailing_zeros != 0 {
+                if mask & 1 << (i + trailing_zeros) != 0 {
                     Some(Tag::from_u32((i + trailing_zeros) as u32))
                 } else {
                     None
