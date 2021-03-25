@@ -4,39 +4,95 @@ use regex::Regex;
 use ustr::{ustr, UstrMap};
 
 const TAG_ALIASES: &[(&Tag, &[&str])] = &[
-    (&Tag::Adjective, &["en-adj", "en-adjective"]),
-    (&Tag::Adverb, &["en-adv", "en-adverb"]),
-    (&Tag::Conjunction, &["en-con", "en-conjunction"]),
-    (&Tag::Determiner, &["en-det"]),
+    (
+        &Tag::Adjective,
+        &[
+            "en-adj",
+            "en-adjective",
+            "en|head|adj",
+            "en|head|adjective",
+            "head|en|adjective",
+        ],
+    ),
+    (
+        &Tag::Adverb,
+        &[
+            "en-adv",
+            "en-adverb",
+            "en|head|adv",
+            "en|head|adverb",
+            "head|en|adverb",
+        ],
+    ),
+    (
+        &Tag::Conjunction,
+        &[
+            "en-con",
+            "en-conj",
+            "en-conjunction",
+            "en-conj-simple",
+            "en|head|con",
+            "en|head|conj",
+            "en|head|conjunction",
+        ],
+    ),
+    (
+        &Tag::Determiner,
+        &["en-det", "en|head|det", "head|en|determiner"],
+    ),
     (
         &Tag::Interjection,
-        &["en-interj", "en-interjection", "en-intj"],
+        &[
+            "en-interj",
+            "en-interjection",
+            "en-intj",
+            "en|head|interj",
+            "en|head|interjection",
+            "head|en|interjection",
+        ],
     ),
-    (&Tag::Noun, &["en-noun"]),
-    (&Tag::Numeral, &["en-num"]),
-    (&Tag::Particle, &["en-part"]),
-    (&Tag::Postposition, &["en-postp"]),
-    (&Tag::Preposition, &["en-prep"]),
-    (&Tag::Pronoun, &["en-pron"]),
-    (&Tag::ProperNoun, &["en-proper noun"]),
-    (&Tag::Verb, &["en-verb"]),
+    (
+        &Tag::Noun,
+        &[
+            "en-noun",
+            "en|head|noun",
+            "head|en|noun",
+            "head|en|noun form",
+            "en-plural noun",
+        ],
+    ),
+    (&Tag::Numeral, &["en-num", "en|head|num"]),
+    (&Tag::Particle, &["en-part", "en|head|part"]),
+    (&Tag::Postposition, &["en-postp", "en|head|postp"]),
+    (&Tag::Preposition, &["en-prep", "en|head|prep"]),
+    (&Tag::Pronoun, &["en-pron", "en|head|pron"]),
+    (&Tag::ProperNoun, &["en-proper noun", "en|head|proper noun"]),
+    (
+        &Tag::Verb,
+        &["en-verb", "head|en|verb", "head|en|verb form"],
+    ),
 ];
 
 pub struct ParserRegexes {
     tag_regex: Regex,
     title_regex: Regex,
     opening_text_regex: Regex,
-    alias_lookup: Map<Vec<u8>>,
+    pub alias_lookup: Map<Vec<u8>>,
 }
 
 impl std::default::Default for ParserRegexes {
     fn default() -> Self {
         let mut tags_builder = TagsBuilder::in_memory();
 
-        for (tag, aliases) in TAG_ALIASES.iter() {
-            for alias in aliases.iter() {
-                tags_builder.insert_tag(alias, tag);
-            }
+        let mut tag_aliases: Vec<_> = TAG_ALIASES
+            .iter()
+            .flat_map(|(tag, aliases)| aliases.into_iter().map(move |alias| (alias, tag.clone())))
+            .collect();
+
+        tag_aliases.sort_by(|(alias1, _), (alias2, _)| alias1.cmp(alias2));
+
+        for (alias, tag) in tag_aliases {
+            tags_builder.insert_tag(alias, tag);
         }
 
         ParserRegexes {
@@ -44,7 +100,7 @@ impl std::default::Default for ParserRegexes {
             tag_regex: Regex::new(
                 r#"(?x)
                     \{\{\s*
-                    ((?:en)\-[^\\|{}\d\.&]+)
+                    ((?:en\-|head\|en\|)[^\|{}\d\.&]+)
                 "#,
             )
             .unwrap(),

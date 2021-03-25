@@ -46,7 +46,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         let mut time_since_last_report = Instant::now();
         let mut total_bytes_seen = 0;
-        let mut report_percentage_after = 0f64;
+        let mut report_percentage_after = 0.05f64;
 
         for line in buffer.lines() {
             let line = line?;
@@ -81,8 +81,26 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
+    let mut used = tag_counter
+        .into_iter()
+        .map(|(tag, count)| {
+            format!(
+                "{}({:6}): {:?} ",
+                if parser_regexes.alias_lookup.get(tag.as_str()).is_some() {
+                    "YES"
+                } else {
+                    "---"
+                },
+                count,
+                tag.as_str(),
+            )
+        })
+        .collect::<Vec<_>>();
+
+    used.sort();
+
     eprintln!("{:#?}", pages.len());
-    eprintln!("{:#?}", tag_counter);
+    eprintln!("{:#?}", used);
 
     let fst_path = std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap_or(".".into()))
         .join("enwiktionary-word-tags.fst");
