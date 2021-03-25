@@ -95,7 +95,15 @@ impl<W: std::io::Write> TagsBuilder<W> {
     }
 
     pub fn insert_tag(&mut self, key: &str, tag: &Tag) {
-        self.0.insert(key, tag.to_mask() as u64);
+        self.0
+            .insert(key, tag.to_mask() as u64)
+            .map_err(|err| {
+                format!(
+                    "Expected to insert key ({:?}), but got error:\n{:#?}",
+                    key, err
+                )
+            })
+            .unwrap();
     }
 
     pub fn insert_tag_set(&mut self, key: &str, tag_set: &TagSet) {
