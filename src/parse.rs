@@ -25,6 +25,7 @@ const TAG_ALIASES: &[(&Tag, &[&str])] = &[
 pub struct ParserRegexes {
     tag_regex: Regex,
     title_regex: Regex,
+    opening_text_regex: Regex,
     alias_lookup: Map<Vec<u8>>,
 }
 
@@ -54,6 +55,7 @@ impl std::default::Default for ParserRegexes {
                 "#,
             )
             .unwrap(),
+            opening_text_regex: Regex::new(r#"<text"#).unwrap(),
         }
     }
 }
@@ -66,7 +68,7 @@ pub struct PageInfo {
 
 pub fn parse_page(
     regexes: &ParserRegexes,
-    tag_interner: &mut UstrMap<usize>,
+    tag_counter: &mut UstrMap<usize>,
     add_to: &mut Vec<PageInfo>,
     page_contents: &str,
 ) -> Result<(), String> {
@@ -76,18 +78,24 @@ pub fn parse_page(
         .ok_or_else(|| format!("Failed to find title for page"))
         .map(|title| {
             let mut tags = TagSet::default();
-            for wiki_tag in regexes.tag_regex.captures_iter(&page_contents).map(|cap| {
-                let handle = ustr(&cap[1].trim());
-                *tag_interner.entry(handle).or_default() += 1;
-                handle
-            }) {
-                if let Some(existing_tag_mask) = regexes.alias_lookup.get(wiki_tag.as_str()) {
-                    tags.insert_tag_mask(existing_tag_mask as u32);
+            if let Some(m) = regexes.opening_text_regex.find(&page_contents) {
+                for wiki_tag in regexes
+                    .tag_regex
+                    .captures_iter(&page_contents[m.end()..])
+                    .map(|cap| {
+                        let handle = ustr(&cap[1].trim());
+                        *tag_counter.entry(handle).or_default() += 1;
+                        handle
+                    })
+                {
+                    if let Some(existing_tag_mask) = regexes.alias_lookup.get(wiki_tag.as_str()) {
+                        tags.insert_tag_mask(existing_tag_mask as u32);
+                    }
                 }
+                add_to.push(PageInfo {
+                    title: String::from(&title[1]),
+                    tags,
+                });
             }
-            add_to.push(PageInfo {
-                title: String::from(&title[1]),
-                tags,
-            });
         })
 }

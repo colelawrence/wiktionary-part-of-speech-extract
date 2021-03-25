@@ -83,24 +83,25 @@ impl TagsBuilder<Vec<u8>> {
 }
 
 impl<W: std::io::Write> TagsBuilder<W> {
-    pub fn new(writer: W) -> Self {
-        TagsBuilder(fst::MapBuilder::new(writer).unwrap())
+    pub fn new(writer: W) -> Result<Self, fst::Error> {
+        Ok(TagsBuilder(fst::MapBuilder::new(writer)?))
     }
 
     pub fn insert_tag(&mut self, key: &str, tag: &Tag) {
         self.0.insert(key, tag.to_mask() as u64);
     }
 
-    pub fn insert_tag_set(&mut self, key: &str, tag_set: &TagSet) {
-        self.0
-            .insert(key, tag_set.to_mask() as u64)
-            .map_err(|err| {
-                format!(
-                    "Expected to insert key ({:?}) with tags ({:?}), but got error:\n{:#?}",
-                    key, tag_set, err
-                )
-            })
-            .unwrap();
+    pub fn insert_tag_set(&mut self, key: &str, tag_set: &TagSet) -> Result<(), String> {
+        self.0.insert(key, tag_set.to_mask() as u64).map_err(|err| {
+            format!(
+                "Expected to insert key ({:?}) with tags ({:?}), but got error:\n{:#?}",
+                key, tag_set, err
+            )
+        })
+    }
+
+    pub fn finish(self) -> Result<(), fst::Error> {
+        self.0.finish()
     }
 }
 

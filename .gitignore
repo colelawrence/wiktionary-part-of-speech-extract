@@ -4,3 +4,4 @@ sample-*mb.xml
 *.txt
 .vscode
 out-*
+*.fst

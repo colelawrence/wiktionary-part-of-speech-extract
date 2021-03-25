@@ -1,4 +1,5 @@
 use std::{env, time::Instant};
+use unidecode::unidecode;
 use ustr::UstrMap;
 
 static OPENING_PAGE: &str = "<page>";
@@ -27,13 +28,13 @@ impl From<String> for MyError {
     }
 }
 
-fn main() -> Result<(), MyError> {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     use parse::ParserRegexes;
     use std::fs::File;
     use std::io::{BufRead, BufReader};
 
     let parser_regexes = ParserRegexes::default();
-    let mut interner = UstrMap::default();
+    let mut tag_counter = UstrMap::default();
     let mut pages = Vec::new();
     // Prints each argument on a separate line
     for file_to_parse in env::args().skip(1) {
@@ -57,7 +58,7 @@ fn main() -> Result<(), MyError> {
                 is_inside_page = true;
             } else {
                 if line.contains(CLOSING_PAGE) {
-                    parse::parse_page(&parser_regexes, &mut interner, &mut pages, &page)?;
+                    parse::parse_page(&parser_regexes, &mut tag_counter, &mut pages, &page)?;
 
                     page.clear();
 
@@ -83,11 +84,23 @@ fn main() -> Result<(), MyError> {
     }
 
     eprintln!("{:#?}", pages.len());
-    eprintln!("{:#?}", interner);
+    eprintln!("{:#?}", tag_counter);
 
-    for page in pages {
+    let fst_path = std::path::Path::new(&std::env::var_os("OUT_DIR").unwrap())
+        .join("enwiktionary-word-tags.fst");
+    let w = std::io::BufWriter::new(std::fs::File::create(fst_path)?);
+    let mut tb = TagsBuilder::new(w)?;
+
+    let mut pages_sorted = pages;
+    pages_sorted.sort_by(|a, b| a.title.cmp(&b.title));
+
+    for page in pages_sorted {
+        tb.insert_tag_set(&page.title, &page.tags)?;
+
         println!("{}:{:?}", page.title, page.tags)
     }
+
+    tb.finish()?;
 
     Ok(())
 }
