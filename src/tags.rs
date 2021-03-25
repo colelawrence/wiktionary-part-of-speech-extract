@@ -38,7 +38,7 @@ impl TagSet {
             .enumerate()
             .flat_map(move |(i, mask)| {
                 if mask & 1 << i + trailing_zeros != 0 {
-                    Some(Tag::from_u32(i as u32))
+                    Some(Tag::from_u32((i + trailing_zeros) as u32))
                 } else {
                     None
                 }
