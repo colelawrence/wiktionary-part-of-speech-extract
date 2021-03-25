@@ -1,4 +1,4 @@
-#[derive(Default, Clone)]
+#[derive(Default, Clone, PartialEq, Eq)]
 pub struct TagSet(u32);
 
 impl std::fmt::Debug for TagSet {
@@ -8,31 +8,49 @@ impl std::fmt::Debug for TagSet {
 }
 
 impl TagSet {
+    pub fn of<'a, I>(from: I) -> Self
+    where
+        I: IntoIterator<Item = &'a Tag>,
+    {
+        from.into_iter().fold(TagSet::default(), |mut acc, next| {
+            acc._insert_tag(next);
+            acc
+        })
+    }
+
+    pub(crate) fn from_mask(mask: u32) -> Self {
+        Self(mask)
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.0 == 0
+    }
+
     fn to_mask(&self) -> u32 {
         self.0
     }
 
-    pub fn from_mask(mask: u32) -> Self {
-        Self(mask)
-    }
-
-    pub(crate) fn is_empty(&self) -> bool {
-        self.0 == 0
-    }
-
-    pub(crate) fn insert_tag(&mut self, tag: &Tag) {
+    fn _insert_tag(&mut self, tag: &Tag) {
         self.0 |= tag.to_mask();
     }
 
-    pub(crate) fn remove_tag_set(&self, tag_set: &Self) -> Self {
+    #[cfg(feature = "raw-masking")]
+    pub fn insert_tag(&mut self, tag: &Tag) {
+        self._insert_tag(tag)
+    }
+
+    #[cfg(feature = "raw-masking")]
+    pub fn remove_tag_set(&self, tag_set: &Self) -> Self {
         TagSet(self.0 & !tag_set.0)
     }
 
-    pub(crate) fn extend(&mut self, other: Self) {
+    #[cfg(feature = "raw-masking")]
+    pub fn extend(&mut self, other: Self) {
         self.0 |= other.0;
     }
 
-    pub(crate) fn insert_tag_mask(&mut self, tag: u32) {
+    #[cfg(feature = "raw-masking")]
+    pub fn insert_tag_mask(&mut self, tag: u32) {
         self.0 |= tag;
     }
 

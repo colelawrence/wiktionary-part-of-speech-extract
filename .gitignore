@@ -4,4 +4,9 @@ sample-*mb.xml
 *.txt
 .vscode
 out-*
+
+# generated fsts
 *.fst
+
+# keep distributed fsts
+!/dist/*.fst

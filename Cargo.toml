@@ -3,6 +3,7 @@ authors = ["Cole Lawrence <cole@colelawrence.com>"]
 edition = "2018"
 name = "wiktionary-part-of-speech-extract"
 version = "0.1.0"
+include = ["src/**/*", "dist/*.fst", "Cargo.toml"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -11,3 +12,15 @@ regex = "1.4.5"
 ustr = "0.7.0"
 fst = "0.4.5"
 unidecode = "0.3.0"
+once_cell = "1.7.2"
+
+[[bin]]
+name = "regenerate"
+path = "src/bin/regenerate/regenerate.rs"
+required-features = ["raw-masking"]
+test = false
+bench = false
+
+# ...
+[features]
+raw-masking = []
