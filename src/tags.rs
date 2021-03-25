@@ -25,12 +25,19 @@ impl TagSet {
     }
 
     pub fn tags(&self) -> impl Iterator<Item = Tag> {
-        // TODO @leudz, where does this come from?
+        // We iterate mask's bits from the first non zero to the last non zero
+        // Each iteration will check one bit
+        // If the bit is non zero we yield the `Tag` matching this bit index
+
+        const BIT_IN_MASK: usize = 32;
+        let trailing_zeros = self.0.trailing_zeros() as usize;
+
         std::iter::repeat(self.0)
-            .take((32 - self.0.leading_zeros()) as usize)
+            .take(BIT_IN_MASK - self.0.leading_zeros() as usize)
+            .skip(trailing_zeros)
             .enumerate()
-            .flat_map(|(i, mask)| {
-                if mask & 1 << i != 0 {
+            .flat_map(move |(i, mask)| {
+                if mask & 1 << i + trailing_zeros != 0 {
                     Some(Tag::from_u32(i as u32))
                 } else {
                     None
