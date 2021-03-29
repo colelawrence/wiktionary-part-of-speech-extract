@@ -182,7 +182,5 @@ fn build_fst_from_pages(
 
     tb.extend_iter(pages_sorted)?;
 
-    tb.finish()?;
-
-    Ok(())
+    tb.finish()
 }
