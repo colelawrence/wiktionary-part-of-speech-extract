@@ -60,15 +60,14 @@ impl TagSet {
         // If the bit is non zero we yield the `Tag` matching this bit index
 
         const BIT_IN_MASK: usize = 32;
-        let trailing_zeros = self.0.trailing_zeros() as usize;
 
         std::iter::repeat(self.0)
             .take(BIT_IN_MASK - self.0.leading_zeros() as usize)
-            .skip(trailing_zeros)
             .enumerate()
+            .skip(self.0.trailing_zeros() as usize)
             .flat_map(move |(i, mask)| {
-                if mask & 1 << (i + trailing_zeros) != 0 {
-                    Some(Tag::from_u32((i + trailing_zeros) as u32))
+                if mask & 1 << i != 0 {
+                    Some(Tag::from_u32(i as u32))
                 } else {
                     None
                 }
@@ -146,7 +145,7 @@ impl<D: AsRef<[u8]>> TagsLookup<D> {
     }
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tag {
     /// adj
     Adjective,
@@ -213,4 +212,14 @@ impl Tag {
             other => panic!("Invalid Tag variant from_u32({})", other),
         }
     }
+}
+
+#[test]
+fn tags() {
+    let tags = TagSet::of([Tag::Determiner, Tag::Particle].iter());
+
+    assert_eq!(
+        tags.tags().collect::<Vec<_>>(),
+        vec![Tag::Determiner, Tag::Particle]
+    );
 }
