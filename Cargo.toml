@@ -2,7 +2,9 @@
 authors = ["Cole Lawrence <cole@colelawrence.com>"]
 edition = "2018"
 name = "wiktionary-part-of-speech-extract"
+description = "English Wiktionary parsed for part-of-speech info and placed into a precompiled FST"
 version = "0.1.0"
+license = "MIT/Apache-2.0" 
 include = ["src/**/*", "dist/*.fst", "Cargo.toml"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
