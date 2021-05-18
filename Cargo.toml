@@ -3,7 +3,7 @@ authors = ["Cole Lawrence <cole@colelawrence.com>"]
 edition = "2018"
 name = "wiktionary-part-of-speech-extract"
 description = "English Wiktionary parsed for part-of-speech info and placed into a precompiled FST"
-version = "0.1.0"
+version = "0.1.1"
 license = "MIT OR Apache-2.0" 
 include = ["src/**/*", "dist/*.fst", "Cargo.toml"]
 
