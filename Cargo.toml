@@ -10,9 +10,9 @@ include = ["src/**/*", "dist/*.fst", "Cargo.toml"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-regex = "1.4.5"
-ustr = "0.7.0"
-fst = "0.4.5"
+regex = "1.5.4"
+ustr = "0.8.0"
+fst = "0.4.6"
 unidecode = "0.3.0"
 once_cell = "1.7.2"
 
