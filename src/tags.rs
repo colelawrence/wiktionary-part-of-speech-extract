@@ -145,6 +145,61 @@ impl<D: AsRef<[u8]>> TagsLookup<D> {
     }
 }
 
+/// TODO: Spell check may not work until we start retaining nouns in wiktionary
+#[cfg(feature = "spell-check")]
+pub mod spell_check {
+    use super::*;
+    use fst::automaton::{Levenshtein, LevenshteinError};
+
+    pub struct SpellCheckAlternative {
+        pub word: String,
+        pub mask: u64,
+    }
+
+    impl SpellCheckAlternative {
+        /// Get the spell check alternative's word.
+        pub fn word(&self) -> &str {
+            &self.word
+        }
+
+        /// Get the spell check alternative's [TagSet].
+        pub fn tag_set(&self) -> TagSet {
+            TagSet::from_mask(self.mask as u32)
+        }
+    }
+
+    pub enum SpellCheckError {
+        LevenshteinError(LevenshteinError),
+    }
+
+    impl From<LevenshteinError> for SpellCheckError {
+        fn from(err: LevenshteinError) -> Self {
+            SpellCheckError::LevenshteinError(err)
+        }
+    }
+
+    impl<D: AsRef<[u8]>> TagsLookup<D> {
+        /// It would be recommended to use an edit distance of no more than 2
+        pub fn spellcheck(&self, key: &str) -> Result<Vec<SpellCheckAlternative>, SpellCheckError> {
+            use fst::{IntoStreamer, Streamer};
+
+            // memoization by allowing the parent to pass in some sort of memoization controller?
+            let query = Levenshtein::new(key, 2)?;
+            let mut stream = self.0.search(&query).into_stream();
+
+            let mut alernatives = vec![];
+            while let Some((word, mask)) = stream.next() {
+                alernatives.push(SpellCheckAlternative {
+                    word: unsafe { String::from_utf8_unchecked(word.to_vec()) },
+                    mask,
+                });
+            }
+
+            Ok(alernatives)
+        }
+    }
+}
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Tag {
     /// adj

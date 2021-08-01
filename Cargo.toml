@@ -1,28 +1,29 @@
 [package]
 authors = ["Cole Lawrence <cole@colelawrence.com>"]
-edition = "2018"
-name = "wiktionary-part-of-speech-extract"
 description = "English Wiktionary parsed for part-of-speech info and placed into a precompiled FST"
-version = "0.1.0"
-license = "MIT OR Apache-2.0" 
+edition = "2018"
 include = ["src/**/*", "dist/*.fst", "Cargo.toml"]
+license = "MIT OR Apache-2.0"
+name = "wiktionary-part-of-speech-extract"
+version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-regex = "1.4.5"
-ustr = "0.7.0"
 fst = "0.4.5"
-unidecode = "0.3.0"
 once_cell = "1.7.2"
+regex = "1.4.5"
+unidecode = "0.3.0"
+ustr = "0.7.0"
 
 [[bin]]
+bench = false
 name = "regenerate"
 path = "src/bin/regenerate/regenerate.rs"
 required-features = ["raw-masking"]
 test = false
-bench = false
 
 # ...
 [features]
 raw-masking = []
+spell-check = ["fst/levenshtein"]
