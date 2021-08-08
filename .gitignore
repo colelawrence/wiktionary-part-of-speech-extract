@@ -5,6 +5,11 @@ sample-*mb.xml
 .vscode
 out-*
 
+.DS_Store
+
+# ignore lock files for lib
+Cargo.lock
+
 # generated fsts
 *.fst
 
